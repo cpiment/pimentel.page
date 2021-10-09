@@ -3,7 +3,6 @@ import Layout from '../../components/layout'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { navLinkText } from '../../components/layout.module.css'
 
 const BlogPost = ({ data }) => {
   const image = getImage(data.mdx.frontmatter.hero_image)
@@ -16,7 +15,7 @@ const BlogPost = ({ data }) => {
       />
       <p>
         Photo Credit:{" "}
-        <a className={navLinkText} href={data.mdx.frontmatter.hero_image_credit_link}>
+        <a href={data.mdx.frontmatter.hero_image_credit_link}>
           {data.mdx.frontmatter.hero_image_credit_text}
         </a>
       </p>
@@ -32,7 +31,7 @@ query ($id: String) {
   mdx(id: {eq: $id}) {
     frontmatter {
       title
-      date(formatString: "DD [de] MMMM, YYYY", locale: "es")
+      date(formatString: "MMMM DD, YYYY")
       hero_image_alt
       hero_image_credit_link
       hero_image_credit_text

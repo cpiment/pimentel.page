@@ -23,7 +23,7 @@ const Layout = ({ pageTitle, children }) => {
     <div className={container}>
       <title>{pageTitle} | {data.site.siteMetadata.title}</title>
       <header className={siteTitle}>
-        <svg viewBox="0 0 140 18">
+        <svg viewBox="0 0 140 22">
           <text x="0" y="15">{data.site.siteMetadata.title}</text>
         </svg>
       </header>

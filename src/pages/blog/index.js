@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Layout from '../../components/layout'
 import { graphql, Link } from 'gatsby'
-import { navLinkText } from '../../components/layout.module.css'
 
 const BlogPage = ({ data }) => {
   return (
@@ -11,11 +10,12 @@ const BlogPage = ({ data }) => {
         data.allMdx.nodes.map((node) => (
           <article key={node.id}>
             <h2>
-              <Link className={navLinkText} to={`/blog/${node.slug}`}>
+              <Link to={`/blog/${node.slug}`}>
                 {node.frontmatter.title}
               </Link>
             </h2>
-            <p>Posted: {node.frontmatter.date}</p>      
+            <p>Posted: {node.frontmatter.date}</p>   
+            <p>Updated: {node.frontmatter.update_date}</p>   
           </article>
         ))
       }
@@ -30,15 +30,11 @@ query {
     nodes {
       frontmatter {
         title
-        date(formatString: "DD [de] MMMM, YYYY", locale: "es")
+        date(formatString: "MMMM DD, YYYY")
+        update_date(formatString: "MMMM DD, YYYY")
       }
       id
       slug
-      parent {
-        ... on File {
-          modifiedTime
-        }
-      }
     }
   }
 }

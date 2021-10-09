@@ -24,6 +24,10 @@ body {
     color: #e7a931ff;
 }
 
+a {
+    color: #e7a931ff;
+}
+
 .site-title > svg {
     width: 100%;
 }
