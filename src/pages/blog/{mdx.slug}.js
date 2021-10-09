@@ -3,6 +3,7 @@ import Layout from '../../components/layout'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { navLinkText } from '../../components/layout.module.css'
 
 const BlogPost = ({ data }) => {
   const image = getImage(data.mdx.frontmatter.hero_image)
@@ -15,7 +16,7 @@ const BlogPost = ({ data }) => {
       />
       <p>
         Photo Credit:{" "}
-        <a href={data.mdx.frontmatter.hero_image_credit_link}>
+        <a className={navLinkText} href={data.mdx.frontmatter.hero_image_credit_link}>
           {data.mdx.frontmatter.hero_image_credit_text}
         </a>
       </p>
@@ -37,7 +38,7 @@ query ($id: String) {
       hero_image_credit_text
       hero_image {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
     }
