@@ -24,9 +24,11 @@ body {
     color: #e7a931ff;
 }
 
-.site-title {
-    font-size: 3rem;
-    color: #689e6aff;
+.site-title > svg {
+    width: 100%;
+}
+
+.site-title > svg > text {
+    fill: #689e6aff;
     font-weight: 700;
-    margin: 3rem 0;
-  }
+}
