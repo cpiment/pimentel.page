@@ -9,6 +9,7 @@ const IndexPage = () => {
       <StaticImage
         alt="Cat, looking to the left."
         src="../images/2268042621_0d52f7669b_c.jpg"
+        layout="fullWidth"
       />
     </Layout>
   )
