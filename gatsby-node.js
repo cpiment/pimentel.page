@@ -45,5 +45,16 @@ exports.createPages = async ({ graphql, actions }) => {
         next: index === (posts.length -1)? null : posts[index + 1].node
       },
     })
+    if(index === posts.length -1) {
+      createPage({
+        path: `/`,
+        component: blogPostTemplate,
+        context: {
+          node: node,
+          prev: index === 0? null : posts[index-1].node,
+          next: index === (posts.length -1)? null : posts[index + 1].node
+        },
+      })
+    }
   })
 }
