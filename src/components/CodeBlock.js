@@ -4,6 +4,13 @@
 import React from 'react'
 import Highlight, {defaultProps} from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/dracula'
+import Prism from "prism-react-renderer/prism";
+
+(typeof global !== "undefined" ? global : window).Prism = Prism;
+
+require("prismjs/components/prism-java");
+require("prismjs/components/prism-csharp");
+require("prismjs/components/prism-powershell");
 
 const CodeBlock = (props) => {
     const className = props.children.props.className || ''
