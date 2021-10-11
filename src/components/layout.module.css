@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'FiraCode';
+    src: local('FiraCode'), url(../fonts/Fira-Code-Regular-Nerd-Font.ttf) format('truetype');
+}
+
 body {
     background-color: #201020ff;
     color: #c0b0a0ff
@@ -6,7 +11,7 @@ body {
 .container {
     margin: auto;
     max-width: 800px;
-    font-family: sans-serif;    
+    font-family: FiraCode, sans-serif;    
 }
 
 .heading {
@@ -30,6 +35,7 @@ a {
 
 .site-title > svg {
     width: 100%;
+    font-family: sans-serif;
 }
 
 .site-title > svg > text {
