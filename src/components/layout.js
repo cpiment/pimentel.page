@@ -39,7 +39,11 @@ const Layout = ({ pageTitle, children }) => {
               About
             </Link>
           </li>
-          
+          <li className={navLinkItem}>
+            <Link to="https://github.com/cpiment/pimentel.page" classname={navLinkText}>
+              Github
+            </Link>
+          </li>
         </ul>
       </nav>
       <main>
