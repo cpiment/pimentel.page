@@ -23,7 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
             hero_image_credit_text
             hero_image {
               childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH)
+                gatsbyImageData(layout: CONSTRAINED)
               }
             }
           }
@@ -34,7 +34,9 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   }
   `)
+  //Retrieve allMdx pages ordered by date
   const posts = result.data.allMdx.edges
+  //Create each page with links to previous and next
   posts.forEach( ({node},index) => {
     createPage({
       path: `blog/${node.slug}`,
@@ -45,6 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
         next: index === (posts.length -1)? null : posts[index + 1].node
       },
     })
+    //Use the last post to create the Home Page
     if(index === posts.length -1) {
       createPage({
         path: `/`,
