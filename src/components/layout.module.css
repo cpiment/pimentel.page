@@ -1,7 +1,4 @@
-@font-face {
-    font-family: 'FiraCode';
-    src: local('FiraCode'), url(../fonts/Fira-Code-Regular-Nerd-Font.ttf) format('truetype');
-}
+@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css);
 
 body {
     background-color: #201020ff;
@@ -11,7 +8,7 @@ body {
 .container {
     margin: auto;
     max-width: 800px;
-    font-family: FiraCode, sans-serif;    
+    font-family: 'Fira Code', sans-serif;    
 }
 
 .heading {
