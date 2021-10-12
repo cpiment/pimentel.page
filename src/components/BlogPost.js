@@ -1,9 +1,9 @@
 import * as React from 'react'
-import Layout from '../../components/layout'
+import Layout from './layout'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
-import { prevLink, nextLink } from './template.module.css'
+import { prevLink, nextLink } from './BlogPost.module.css'
 
 const BlogPost = ({ pageContext }) => {
   const image = getImage(pageContext.node.frontmatter.hero_image)

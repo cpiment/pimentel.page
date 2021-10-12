@@ -8,7 +8,7 @@ exports.onPostBuild = ({ reporter }) => {
 // Create blog pages dynamically
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const blogPostTemplate = path.resolve(`src/pages/blog/template.js`)
+  const blogPostTemplate = path.resolve(`src/components/BlogPost.js`)
   const result = await graphql(`
   query {
     allMdx(sort: {fields: frontmatter___date, order: ASC}) {
