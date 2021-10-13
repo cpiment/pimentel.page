@@ -1,0 +1,41 @@
+@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css);
+
+body {
+    background-color: #201020ff;
+    color: #c0b0a0ff
+}
+
+.container {
+    margin: auto;
+    max-width: 800px;
+    font-family: 'Fira Code', sans-serif;    
+}
+
+.heading {
+    color: #689e6aff;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+.nav-link-item {
+    padding-right: 2rem;
+}
+.nav-link-text {
+    color: #e7a931ff;
+}
+
+a {
+    color: #e7a931ff;
+}
+
+.site-title > svg {
+    width: 100%;
+    font-family: sans-serif;
+}
+
+.site-title > svg > text {
+    fill: #689e6aff;
+    font-weight: 700;
+}

@@ -1,0 +1,37 @@
+---
+title: "Syntax Highlight Test"
+date: "2021-07-24"
+update_date: "2021-10-11"
+hero_image: "./yerlin-matu-GtwiBmtJvaU-unsplash.jpg"
+hero_image_alt: "Sleeping cat on the hand that is petting it"
+hero_image_credit_text: "Yerlin Matu"
+hero_image_credit_link: "https://unsplash.com/photos/GtwiBmtJvaU"
+---
+
+I have configured 'prism-react-renderer' to be used alongside 'gatsby-plugin-mdx'
+to have some syntax highlighting for code snippets. Let's try it out! 
+
+JavaScript
+```js
+import React from 'react'
+import Example from './place'
+
+export default () => <Example />
+```
+C
+```c
+printf("Hello World!\n")
+``` 
+Java
+```java
+System.out.println("Hello World!")
+```
+
+Powershell
+```powershell
+Get-Content .\file.txt | ForEach-Object {
+    if($_ -match $regex){
+        # Work here
+    }
+}
+```
