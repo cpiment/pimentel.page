@@ -44,7 +44,8 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         node: node,
         prev: index === 0? null : posts[index-1].node,
-        next: index === (posts.length -1)? null : posts[index + 1].node
+        next: index === (posts.length -1)? null : posts[index + 1].node,
+        isHome: false
       },
     })
     //Use the last post to create the Home Page
@@ -55,7 +56,8 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           node: node,
           prev: index === 0? null : posts[index-1].node,
-          next: index === (posts.length -1)? null : posts[index + 1].node
+          next: index === (posts.length -1)? null : posts[index + 1].node,
+          isHome: true
         },
       })
     }

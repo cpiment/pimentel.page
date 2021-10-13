@@ -8,7 +8,7 @@ import { prevLink, nextLink } from './BlogPost.module.css'
 const BlogPost = ({ pageContext }) => {
   const image = getImage(pageContext.node.frontmatter.hero_image)
   return (
-    <Layout pageTitle={pageContext.node.frontmatter.title}>
+    <Layout pageTitle={pageContext.isHome? "Home":pageContext.node.frontmatter.title}>
       <p>{pageContext.node.frontmatter.date}</p>
       <GatsbyImage
         image={image}
