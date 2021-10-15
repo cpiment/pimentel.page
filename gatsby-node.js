@@ -23,7 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
             hero_image_credit_text
             hero_image {
               childImageSharp {
-                gatsbyImageData(layout: CONSTRAINED)
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
           }
