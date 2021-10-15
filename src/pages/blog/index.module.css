@@ -11,3 +11,7 @@
  .image {
      min-width: 150px;
  }
+
+ .post-list {
+     padding-left: 0px;
+ }
