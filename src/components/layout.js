@@ -9,7 +9,7 @@ import {
   siteTitle
  } from './layout.module.css'
 
-const Layout = ({ pageTitle, children }) => {
+const Layout = ({ pageTitle, isHome, children }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -21,7 +21,7 @@ const Layout = ({ pageTitle, children }) => {
   `)
   return (
     <div className={container}>
-      <title>{pageTitle} | {data.site.siteMetadata.title}</title>
+      <title>{isHome? "Home" : pageTitle} | {data.site.siteMetadata.title}</title>
       <header className={siteTitle}>
         <svg viewBox="0 0 140 22">
           <text x="0" y="15">{data.site.siteMetadata.title}</text>
