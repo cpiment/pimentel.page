@@ -1,0 +1,33 @@
+---
+title: "Kibana Enhanced Tables"
+date: "2021-12-05"
+update_date: "2021-12-05"
+hero_image: "./frank-lam-Ph9h5eayOTQ-unsplash.jpg"
+hero_image_alt: "Brown tabby cat on white wooden table"
+hero_image_credit_text: "Frank Lam"
+hero_image_credit_link: "https://unsplash.com/photos/Ph9h5eayOTQ"
+---
+
+I have been a Elastic Stack user (previously named ELK) since version 5.1. 
+I think the guys at Elastic are doing a great product with tons of functionality that just works.
+
+Where I work we have this huge Elastic Stack with dozens of nodes in a not-so-updated version, and 
+most of our users rely on a little Kibana plugin that makes the default Data Tables much more useful.
+This plugin is the famous [Enhanced Table](https://github.com/fbaligand/kibana-enhanced-table) plugin by 
+[Fabien Baligand](https://github.com/fbaligand).
+
+The problem with Kibana plugins is that you have to update your plugin code with every Kibana version, 
+because the Kibana API changes with every Kibana minor version. Fabien has done a great job with his plugin,
+updating it version by version from Kibana 5.5 to Kibana 7.11! The problem is that if you want to upgrade your
+stack to a version that do not have the plugin, all the visualizations that use that plugin become unusable.
+You can get stuck into a Kibana version if your plugins do not have updated versions!
+
+Since he develops this plugin in his free time, recently 
+[he asked for contributors](https://github.com/fbaligand/kibana-enhanced-table/issues/197#issuecomment-893396944) 
+to help in upgrading the plugin to Kibana 7.12+, and I decided to jump into it!
+
+Fabien and I managed to develop a plugin version that runs in Kibana 7.12.1, and I'm waiting for him to
+approve and merge it before jumping into 7.13+. This development has been quite a challenge for me, I'm not
+a skilled Javascript/Typescript developer, but I have learnt some tricks developing this plugin version. 
+I have always wanted to make a contribution to an Open Source project but had never taken the first step. I hope
+this is the first of many contributions!
