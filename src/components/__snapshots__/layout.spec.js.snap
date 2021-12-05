@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders correctly 1`] = `
+<div
+  className="container"
+>
+  <title>
+    Home
+     | 
+    pimentel.page
+  </title>
+  <header
+    className="siteTitle"
+  >
+    <svg
+      viewBox="0 0 140 22"
+    >
+      <text
+        x="0"
+        y="15"
+      >
+        pimentel.page
+      </text>
+    </svg>
+  </header>
+  <nav>
+    <ul
+      className="navLinks"
+    >
+      <li
+        className="navLinkItem"
+      >
+        <a
+          className="navLinkText"
+          href="/blog"
+        >
+          Blog
+        </a>
+      </li>
+      <li
+        className="navLinkItem"
+      >
+        <a
+          className="navLinkText"
+          href="/about"
+        >
+          About
+        </a>
+      </li>
+      <li
+        className="navLinkItem"
+      >
+        <a
+          classname="navLinkText"
+          href="https://github.com/cpiment/pimentel.page"
+        >
+          Github
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <main>
+    <h1
+      className="heading"
+    >
+      Test Page
+    </h1>
+    <p>
+      Test Page
+    </p>
+  </main>
+</div>
+`;
