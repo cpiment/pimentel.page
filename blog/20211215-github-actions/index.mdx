@@ -1,0 +1,67 @@
+---
+title: "Github Actions"
+date: "2021-12-15"
+update_date: "2021-12-15"
+hero_image: "./timothy-meinberg-AL2-t0GrSko-unsplash.jpg"
+hero_image_alt: "Cat in a bay, walking on a banister"
+hero_image_credit_text: "Timothy Meinberg"
+hero_image_credit_link: "https://unsplash.com/photos/AL2-t0GrSko"
+---
+
+As you probably already know, the source code of this blog is 
+posted on [GitHub](https://github.com/cpiment/pimentel.page).
+
+In order to improve my development workflow I searched for a way
+to deploy new blog contents into the hosting provider using GitHub actions,
+and I found this [blog post](https://www.andrewvillazon.com/automatically-deploying-with-github-actions/)
+with some workflow code I could tune for my use case:
+
+```yaml
+## Based on https://www.andrewvillazon.com/automatically-deploying-with-github-actions/
+name: Build and Deploy
+
+on:
+  push:
+    branches: main
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy Gatsby site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      
+      - name: Set variables
+        run: |
+          VER=$(cat .node-version)
+          echo "NODE_VERSION=$VER" >> $GITHUB_ENV
+      
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      
+      - name: Install Project Dependencies
+        run: npm ci
+      
+      - name: Build
+        run: npx gatsby build
+      
+      - name: Verify build
+        run: ls -la public
+      
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          sudo chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "${{ secrets.HOST }}" > ~/.ssh/known_hosts
+      
+      - name: SCP upload
+        run: scp -r -i ~/.ssh/deploy_key public/* ${{ secrets.DEPLOY_USER }}@${{ secrets.HOST }}:html/
+```
+
+This workflow builds the project using the node version of the file `.node-version` 
+of the repository and `gatbsy build` and then uses SCP to upload the `public`
+directory contents to the hosting provider document root. Pretty neat!
