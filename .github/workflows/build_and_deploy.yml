@@ -1,0 +1,43 @@
+## Based on https://www.andrewvillazon.com/automatically-deploying-with-github-actions/
+name: Build and Deploy
+
+on:
+  push:
+    branches: main
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy Gatsby site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      
+      - name: Set variables
+        run: |
+          VER=$(cat .node-version)
+          echo "NODE_VERSION=$VER" >> $GITHUB_ENV
+      
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      
+      - name: Install Project Dependencies
+        run: npm ci
+      
+      - name: Build
+        run: npx gatsby build
+      
+      - name: Verify build
+        run: ls -la public
+      
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          sudo chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "${{ secrets.HOST }}" > ~/.ssh/known_hosts
+      
+      - name: SCP upload
+        run: scp -r -i ~/.ssh/deploy_key public/* ${{ secrets.DEPLOY_USER }}@${{ secrets.HOST }}:html/'
