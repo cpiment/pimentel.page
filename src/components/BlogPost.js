@@ -1,9 +1,15 @@
 import * as React from 'react'
 import Layout from './layout'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXProvider } from "@mdx-js/react"
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 import { prevLink, nextLink } from './BlogPost.module.css'
+import CodeBlock from './CodeBlock'
+
+const components = {
+  pre: CodeBlock
+}
 
 const BlogPost = ({ pageContext }) => {
   const image = getImage(pageContext.node.frontmatter.hero_image)
@@ -21,9 +27,11 @@ const BlogPost = ({ pageContext }) => {
           {pageContext.node.frontmatter.hero_image_credit_text}
         </a>
       </p>
-      <MDXRenderer>
-        {pageContext.node.body}
-      </MDXRenderer>
+      <MDXProvider components={components}>
+        <MDXRenderer>
+          {pageContext.node.body}
+        </MDXRenderer>
+      </MDXProvider>
       {pageContext.prev && <Link className={prevLink} 
         to={`/blog/${pageContext.prev.slug}`}>
           Previous: {pageContext.prev.frontmatter.title}
