@@ -23,8 +23,10 @@ const BlogPage = ({ data }) => {
                   {node.frontmatter.title}
                 </Link>
               </h2>
-              <p>Posted: {node.frontmatter.date}</p>   
-              <p>Updated: {node.frontmatter.update_date}</p>   
+              <p>Posted: {node.frontmatter.date}
+              { (node.frontmatter.update_date !== node.frontmatter.date)?
+                 ` / Updated: ${node.frontmatter.update_date}` : (null)                
+              } </p>
             </div>
           </article>
         ))
@@ -44,7 +46,7 @@ query {
         update_date(formatString: "MMMM DD, YYYY")
         hero_image {
           childImageSharp {
-            gatsbyImageData(width: 150, layout: CONSTRAINED)
+            gatsbyImageData(width: 150, height:100, layout: FIXED)
           }
         }
       }
