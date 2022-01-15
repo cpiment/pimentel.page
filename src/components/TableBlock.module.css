@@ -1,0 +1,54 @@
+.ascii-table {
+    font: medium/1 monospace;
+    margin: 1em;
+    display: inline-block;
+    position: relative;
+}
+.ascii-table table {
+    border-collapse: collapse;
+}
+.ascii-table td {
+    border: 1px dashed #000;
+    padding: .5em;
+    position: relative;
+}
+.ascii-table tr td:before {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    content: "";
+    background-image: url(http://i.stack.imgur.com/2OGdZ.png);
+    background-color: rgba(255, 127, 0, .4);
+    top: -8px;
+    left: -8px;
+}
+.ascii-table tr td:last-child:after, .ascii-table tr:last-child td:after {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    content: "";
+    background-image: url(http://i.stack.imgur.com/2OGdZ.png);
+    background-color: rgba(255, 63, 63, .4);
+    bottom: -8px;
+    right: -8px;
+}
+.ascii-table:before {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    content: "";
+    background-image: url(http://i.stack.imgur.com/2OGdZ.png);
+    background-color: rgba(255, 127, 0, .8);
+    top: -7px;
+    right: -7px;
+}
+.ascii-table:after {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    content: "";
+    background-image: url(http://i.stack.imgur.com/2OGdZ.png);
+    background-color: rgba(255, 63, 63, .8);
+    bottom: -7px;
+    left: -7px;
+}

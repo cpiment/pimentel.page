@@ -2,9 +2,11 @@ import * as React from 'react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from "@mdx-js/react"
 import CodeBlock from './CodeBlock'
+import TableBlock from './TableBlock'
 
 const components = {
-  pre: CodeBlock
+  pre: CodeBlock,
+  table: TableBlock
 }
 
 export const MDXBlock = ({children}) => {
