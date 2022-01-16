@@ -1,0 +1,15 @@
+/*Adapted from https://stackoverflow.com/a/26344289*/
+
+.ascii-table {
+    margin: 1em;
+    display: inline-block;
+    position: relative;
+}
+.ascii-table table {
+    border-collapse: collapse;
+}
+.ascii-table td, .ascii-table th {
+    border: 1px dashed #e7a931ff;
+    padding: .5em;
+    position: relative;
+}
