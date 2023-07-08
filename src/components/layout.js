@@ -1,11 +1,13 @@
 import * as React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import { 
   container,
   heading,
   navLinks,
   navLinkItem,
   navLinkText,
+  navLinkImage,
   siteTitle
  } from './layout.module.css'
 
@@ -30,18 +32,21 @@ const Layout = ({ pageTitle, isHome, children }) => {
       <nav>
         <ul className={navLinks}>
          <li className={navLinkItem}>
-            <Link to="/blog" className={navLinkText}>
-              Blog
+            <Link to="/blog">
+              <span className={navLinkText}>Blog</span>
+              <StaticImage src="../images/home.svg" alt="Blog" className={navLinkImage}/>
             </Link>
           </li>
           <li className={navLinkItem}>
-            <Link to="/about" className={navLinkText}>
-              About
+            <Link to="/about">
+              <span className={navLinkText}>About</span>
+              <StaticImage src="../images/about.svg" alt="About" className={navLinkImage}/>
             </Link>
           </li>
           <li className={navLinkItem}>
-            <Link to="https://github.com/cpiment/pimentel.page" classname={navLinkText}>
-              Github
+            <Link to="https://github.com/cpiment/pimentel.page" >
+              <span className={navLinkText}>Github</span>
+              <StaticImage src="../images/github.svg" alt="GitHub" className={navLinkImage}/>
             </Link>
           </li>
         </ul>

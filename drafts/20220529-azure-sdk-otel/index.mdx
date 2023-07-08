@@ -1,0 +1,31 @@
+---
+title: "Python Azure SDK and OpenTelemetry"
+date: "2022-05-29"
+update_date: "2022-05-29"
+hero_image: "./14748580998_d77236cac5_k.jpg"
+hero_image_alt: "Orange cat looking at the camera"
+hero_image_credit_text: "Vladimir"
+hero_image_credit_link: "https://www.flickr.com/photos/124571883@N02/14748580998/in/photolist-othkih-vtYevA-9eWDjm-ptbfG4-21PVLJ8-odsv6-eauvUH-9CS3Mm-vj6BEs-Q14Qrx-dyr9q-5Nkyiz-dThEQN-7yjf2P-dytGo-8dprNJ-2aWpC3v-6jdkHL-2592aak-YGguW-2fhmJvS-25en4Sg-noRyrq-23kxRM3-6pn1Ze-5BGscs-6pr9Vd-4qomDy-tigHqM-63vsUA-YYrpgf-mJGoyQ-yY8LNV-D5fhSA-photPa-dyk64-29DchiQ-5NhPu7-DxP2ag-qX85Na-8cZsQh-6f8geY-sBohuR-CpRBc-RZ64E8-TfWWtc-H5cMTb-23tJr4W-D6fZJB-fZa21S"
+---
+
+As you might have guessed seeing other posts, I'm kind of a heavy user of the Elastic Stack. My primary use case has always been get the most of the invisible data that was scattered around the datacenter. Before ELK, we did not have any way to analyze the logs of hundreds of Apache servers and get insights about the behaviour, and error tracing consisted on a set of scripts that downloaded the logs from different machines so we could `grep` them.
+
+My first contact with the ELK Stack was when I discovered Logstash and used it to recover data from [Oracle APM](https://www.oracle.com/es/manageability/application-performance-monitoring/) (Now it seems is only a cloud solution) to a MongoDB database, where reports were created using [Pentaho Report Designer](https://help.hitachivantara.com/Documentation/Pentaho/8.2/Products/Report_Designer). It was weeks later when I learnt that Elastic stack could simplify all that!
+
+So when I had the chance to test Elastic APM I realised that was a powerful tool that was tightly integrated with the rest of the data I was already collecting from different sources.
+
+Now we are starting to use Azure Cloud to spin up some datacenter load there, and I thought that it would be great to have information about our infrastructure deployment process into Elastic. Searching if I could integrate Jenkins with APM (which is [possible](https://www.elastic.co/guide/en/observability/current/ci-cd-observability.html)), I started to learn about OpenTelemetry.
+
+OpenTelemetry is an open API that specifies how telemetry data has to be collected and correlated between servers. There are agent implementations for several languages, and the best part is that Elastic APM Server understands the OpenTelemetry protocol:
+
+![OpenTelemetry and APM](./open-telemetry-protocol-arch.png)
+
+Source: [APM 7 OpenTelemetry Integration](https://www.elastic.co/guide/en/apm/guide/7.17/open-telemetry.html)
+
+At least that was what the documentation said...
+
+## References
+
+(1) [APM 7 OpenTelemetry Integration](https://www.elastic.co/guide/en/apm/guide/7.17/open-telemetry.html)
+(2) [OpenTelemetry Instrumentation for Python](https://opentelemetry.io/docs/instrumentation/python/)
+(3) [Azure SDK for Python OpenTelemetry client](https://docs.microsoft.com/en-us/python/api/overview/azure/core-tracing-opentelemetry-readme?view=azure-python-preview)

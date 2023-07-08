@@ -18,6 +18,7 @@ body {
     display: flex;
     list-style: none;
     padding-left: 0;
+    height: 2em;
 }
 .nav-link-item {
     padding-right: 2rem;
@@ -39,3 +40,21 @@ a {
     fill: #689e6aff;
     font-weight: 700;
 }
+
+@media (orientation: landscape) {
+    .nav-link-image {
+      display: none;
+    }
+  }
+  
+  @media (orientation: portrait) {
+    .nav-link-text {
+      display: none;
+    }
+    .nav-link-item {
+        width: 50px;
+    }
+    .nav-link-image {
+        filter: invert(57%) sepia(23%) saturate(592%) hue-rotate(72deg) brightness(94%) contrast(92%);
+    }
+  }
