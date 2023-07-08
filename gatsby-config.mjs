@@ -1,4 +1,10 @@
-module.exports = {
+import remarkGfm from "remark-gfm"
+import { dirname } from "path"
+import { fileURLToPath } from "url"
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
+const config = {
   siteMetadata: {
     siteUrl: "https://pimentel.page",
     title: "pimentel.page",
@@ -23,9 +29,14 @@ module.exports = {
               maxWidth: 800,
             }
           }
-        ] 
+        ],
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+        }
       }
     },
     "gatsby-transformer-sharp",
   ],
 };
+
+export default config

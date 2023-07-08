@@ -11,7 +11,7 @@ const BlogPage = ({ data }) => {
       {
         data.allMdx.nodes.map((node) => (
           <article key={node.id} className={article}>
-            <Link to={`/blog/${node.slug}`}>
+            <Link to={`/blog${node.fields.slug}`}>
               <GatsbyImage className={image}
                 image={getImage(node.frontmatter.hero_image)}
                 alt={node.frontmatter.hero_image_alt}
@@ -19,7 +19,7 @@ const BlogPage = ({ data }) => {
             </Link>
             <div className={text}>
               <h2>
-                <Link to={`/blog/${node.slug}`}>
+                <Link to={`/blog${node.fields.slug}`}>
                   {node.frontmatter.title}
                 </Link>
               </h2>
@@ -36,9 +36,8 @@ const BlogPage = ({ data }) => {
   )
 }
 
-export const query = graphql`
-query {
-  allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+export const query = graphql`{
+  allMdx(sort: {frontmatter: {date: DESC}}) {
     nodes {
       frontmatter {
         title
@@ -46,15 +45,16 @@ query {
         update_date(formatString: "MMMM DD, YYYY")
         hero_image {
           childImageSharp {
-            gatsbyImageData(width: 150, height:100, layout: FIXED)
+            gatsbyImageData(width: 150, height: 100, layout: FIXED)
           }
         }
       }
       id
-      slug
+      fields {
+        slug
+      }
     }
   }
-}
-`
+}`
 
 export default BlogPage
