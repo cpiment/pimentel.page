@@ -43,7 +43,7 @@ a {
 
 @media (orientation: landscape) {
     .nav-link-image {
-      display: none;
+      display: none!important;
     }
   }
   

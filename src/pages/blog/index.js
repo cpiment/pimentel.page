@@ -41,6 +41,7 @@ export const query = graphql`{
     nodes {
       frontmatter {
         title
+        hero_image_alt
         date(formatString: "MMMM DD, YYYY")
         update_date(formatString: "MMMM DD, YYYY")
         hero_image {
