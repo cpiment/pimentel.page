@@ -1,0 +1,32 @@
+---
+title: "Gatsby Updated"
+date: "2023-07-08"
+update_date: "2023-07-08"
+hero_image: "./pacto-visual-cWOzOnSoh6Q-unsplash.jpg"
+hero_image_alt: "Blue-eyed cat looking at camera with black background"
+hero_image_credit_text: "Pacto Visual"
+hero_image_credit_link: "https://unsplash.com/es/fotos/cWOzOnSoh6Q"
+---
+
+Vacation is a good time to recover past hobbies. I'm investing some time
+in upgrading the blog (more than one year since last post...), and the first
+step should be upgrading GatsbyJS.
+
+This has implied:
+
+* Upgrading Gatsby from v4 to v5
+* Upgrading Node from v14 to v18
+* Upgrading React from v17 to v18
+
+My first intention was to stay a little more time in the last Gatsby v4, 
+but when I upgraded the `gatsby-plugin-mdx` to latest version, I found that
+the GFM extensions for Markdown stopped working. It seemed that the only way
+to work around that was to upgrade to Gatsby v5, so here we are!
+
+I recommend this resources for the upgrade:
+
+* [Official docs for the upgrade](https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v4-to-v5/)
+* [`gatsby-plugin-mdx` docs](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/)
+* [ES Modules and Gatsby](https://www.gatsbyjs.com/docs/how-to/custom-configuration/es-modules/)
+* [This Reddit post 'Gatsby 5 + MDX2: support for tables?'](https://www.reddit.com/r/gatsbyjs/comments/107nnj2/gatsby_5_mdx2_support_for_tables/)
+* [This commit of my blog with the changes](https://github.com/cpiment/pimentel.page/commit/9e3922eb2de3dc2b1e9a9a40852f927ac3ee6a67)
