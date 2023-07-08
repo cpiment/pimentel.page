@@ -3,9 +3,9 @@ import { asciiTable } from './TableBlock.module.css'
 
 const TableBlock = (props) => {
   return (
-    <div className={asciiTable}>
+    <table className={asciiTable}>
         {props.children}
-    </div>
+    </table>
   )
 }
 
