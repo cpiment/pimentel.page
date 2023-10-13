@@ -1,0 +1,15 @@
+.code-block {
+    overflow: auto;
+}
+
+.code-block::-webkit-scrollbar {
+    height: 1em;
+}
+   
+.code-block::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgb(255, 121, 198)
+}
+   
+.code-block::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 121, 198);
+}

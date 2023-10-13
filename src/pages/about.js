@@ -11,18 +11,17 @@ const AboutPage = () => {
       </p>
       <p>
         Past and present experience include but are not limited to:
-
-        <ul>
-          <li>Oracle Weblogic</li>
-          <li>Apache HTTPD</li>
-          <li>RedHat JBoss EAP</li>
-          <li>Kubernetes</li>
-          <li>Elasticsearch, Kibana, Logstash, Beats</li>
-          <li>Ansible</li>
-          <li>Puppet</li>
-          <li>Blue Prism</li>
-        </ul>        
       </p>
+      <ul>
+        <li>Oracle Weblogic</li>
+        <li>Apache HTTPD</li>
+        <li>RedHat JBoss EAP</li>
+        <li>Kubernetes</li>
+        <li>Elasticsearch, Kibana, Logstash, Beats</li>
+        <li>Ansible</li>
+        <li>Puppet</li>
+        <li>Blue Prism</li>
+      </ul>
       <p>
         You can find my (more or less) updated profile and contact info 
         in <a href="https://www.linkedin.com/in/carlospimentel/">LinkedIn</a>.
