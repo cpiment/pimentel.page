@@ -21,9 +21,11 @@ const Layout = ({ pageTitle, isHome, children }) => {
       }
     }
   `)
+  React.useEffect( () => {
+    document.title = (isHome? "Home" : pageTitle)+" | "+ data.site.siteMetadata.title
+  })
   return (
     <div className={container}>
-      <title>{isHome? "Home" : pageTitle} | {data.site.siteMetadata.title}</title>
       <header className={siteTitle}>
         <svg viewBox="0 0 140 22">
           <text x="0" y="15">{data.site.siteMetadata.title}</text>
