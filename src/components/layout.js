@@ -44,10 +44,10 @@ const Layout = ({ pageTitle, isHome, children }) => {
             </Link>
           </li>
           <li className={navLinkItem}>
-            <Link to="https://github.com/cpiment/pimentel.page" >
+            <a href="https://github.com/cpiment/pimentel.page" >
               <span className={navLinkText}>Github</span>
               <StaticImage src="../images/github.svg" alt="GitHub" className={navLinkImage}/>
-            </Link>
+            </a>
           </li>
         </ul>
       </nav>
