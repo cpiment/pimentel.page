@@ -1,0 +1,24 @@
+---
+title: "Fixed Gatsby Update"
+date: "2023-10-14"
+update_date: "2023-10-14"
+hero_image: "./kate-stone-matheson-uy5t-CJuIK4-unsplash.jpg"
+hero_image_alt: "Cat sleeping under blanket"
+hero_image_credit_text: "Kate Stone Matheson"
+hero_image_credit_link: "https://unsplash.com/es/fotos/uy5t-CJuIK4"
+---
+
+As noted in [my last post](/blog/gatsby-updated), after upgrading the site from Gatsby 4 to Gatsby 5
+the [blog](/blog) link broke, post where not showing up, and some weird errors were showing
+in the browser console.
+
+It has not been until now that I have had time to review this, and to my surprise, the site worked fine
+without doing anything. Maybe it was something related to my browser cache at that time.
+
+Nevertheless, some [React 425 errors](https://www.paulie.dev/posts/2022/10/react-hydration-error-425-text-content-does-not-match-server-rendered-html/)
+were still showing up in the console. After some investigation, it seemed that rendering the page title
+inside the `title` element of the blog layout was not behaving the same way for the [home](/) page
+and the rest of the pages of the blog. [This](https://github.com/cpiment/pimentel.page/commit/20dd3661db10e6a720aa865da58724820749c0b8) is the fix.
+
+Since I had allocated time to fix that issue, I have also fixed some other cosmetic problems and updated the dependencies. 
+Let's see if I start updating this with higher frequency!
