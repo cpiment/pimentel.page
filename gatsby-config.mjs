@@ -10,6 +10,7 @@ const config = {
     title: "pimentel.page",
   },
   plugins: [
+    "gatsby-plugin-catch-links",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     {
