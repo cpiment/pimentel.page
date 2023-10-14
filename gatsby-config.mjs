@@ -36,6 +36,7 @@ const config = {
       }
     },
     "gatsby-transformer-sharp",
+    "gatsby-plugin-htaccess"
   ],
 };
 
