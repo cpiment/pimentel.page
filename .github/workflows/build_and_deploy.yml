@@ -40,7 +40,8 @@ jobs:
           mkdir -p ~/.ssh/
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
           sudo chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "${{ secrets.HOST }}" > ~/.ssh/known_hosts
+          ssh-keyscan -p 10922 -H "${{ secrets.HOST }}" > ~/.ssh/known_hosts
       
       - name: Rsync upload
         run: rsync -av -e "ssh -i ~/.ssh/deploy_key -l ${{ secrets.DEPLOY_USER }} -p 10922" public/ ${{ secrets.DEPLOY_USER }}@${{ secrets.HOST }}:html/
+
