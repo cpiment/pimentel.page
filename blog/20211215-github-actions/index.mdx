@@ -1,12 +1,16 @@
 ---
 title: "Github Actions"
 date: "2021-12-15"
-update_date: "2021-12-15"
+update_date: "2023-10-14"
 hero_image: "./timothy-meinberg-AL2-t0GrSko-unsplash.jpg"
 hero_image_alt: "Cat in a bay, walking on a banister"
 hero_image_credit_text: "Timothy Meinberg"
 hero_image_credit_link: "https://unsplash.com/photos/AL2-t0GrSko"
 ---
+
+> UPDATE:
+>
+> The GitHub Workflow has been modified to use rsync instead of SCP. I have modified the yaml in this post to reflect those changes
 
 As you probably already know, the source code of this blog is 
 posted on [GitHub](https://github.com/cpiment/pimentel.page).
@@ -50,18 +54,21 @@ jobs:
       
       - name: Verify build
         run: ls -la public
+
+      - name: Modify .htaccess
+        run: sed -i -e 's/Options -MultiViews//' public/.htaccess
       
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh/
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
           sudo chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "${{ secrets.HOST }}" > ~/.ssh/known_hosts
+          ssh-keyscan -p 10922 -H "${{ secrets.HOST }}" > ~/.ssh/known_hosts
       
-      - name: SCP upload
-        run: scp -r -i ~/.ssh/deploy_key public/* ${{ secrets.DEPLOY_USER }}@${{ secrets.HOST }}:html/
+      - name: Rsync upload
+        run: rsync -av -e "ssh -i ~/.ssh/deploy_key -l ${{ secrets.DEPLOY_USER }} -p 10922" public/ ${{ secrets.DEPLOY_USER }}@${{ secrets.HOST }}:html/
 ```
 
 This workflow builds the project using the node version of the file `.node-version` 
-of the repository and `gatbsy build` and then uses SCP to upload the `public`
+of the repository and `gatbsy build` and then uses `rsync` to upload the `public`
 directory contents to the hosting provider document root. Pretty neat!
