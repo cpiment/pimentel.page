@@ -34,9 +34,15 @@ const Layout = ({ pageTitle, isHome, children }) => {
       <nav>
         <ul className={navLinks}>
          <li className={navLinkItem}>
+            <Link to="/">
+              <span className={navLinkText}>Home</span>
+              <StaticImage src="../images/home.svg" alt="Home" className={navLinkImage}/>
+            </Link>
+          </li>
+          <li className={navLinkItem}>
             <Link to="/blog">
               <span className={navLinkText}>Blog</span>
-              <StaticImage src="../images/home.svg" alt="Blog" className={navLinkImage}/>
+              <StaticImage src="../images/list-circle-outline.svg" alt="Blog" className={navLinkImage}/>
             </Link>
           </li>
           <li className={navLinkItem}>

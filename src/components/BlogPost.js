@@ -7,10 +7,12 @@ import { prevLink, nextLink } from './BlogPost.module.css'
 
 const BlogPost = ({ pageContext, children }) => {
   const image = getImage(pageContext.node.frontmatter.hero_image)
+  const updated = pageContext.node.frontmatter.date !== pageContext.node.frontmatter.update_date
   return (
     <Layout pageTitle={pageContext.node.frontmatter.title}
             isHome={pageContext.isHome}>
-      <p>{pageContext.node.frontmatter.date}</p>
+      <p>{pageContext.node.frontmatter.date}
+      {updated? " / Updated: "+pageContext.node.frontmatter.update_date : ""}</p>
       <GatsbyImage
         image={image}
         alt={pageContext.node.frontmatter.hero_image_alt}

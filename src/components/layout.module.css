@@ -5,10 +5,30 @@ body {
     color: #c0b0a0ff
 }
 
+blockquote {
+    background-color: rgb(65, 25, 65);
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 40px;
+    padding-inline-end: 40px;
+    padding-block-start: 0.5em;
+    padding-block-end: 0.5em;
+}
+
+code {
+    font-family: 'Fira Code', monospace;
+    background-color: #e7a931ff;
+    color: #201020ff;
+    padding-inline-start: 0.3em;
+    padding-inline-end: 0.3em;
+    border-radius: 10px;
+}
+
 .container {
     margin: auto;
     max-width: 800px;
-    font-family: 'Fira Code', sans-serif;    
+    font-family: 'Fira Code', sans-serif;
+    line-height: 2em;
 }
 
 .heading {
