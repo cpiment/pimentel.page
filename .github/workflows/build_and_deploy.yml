@@ -40,4 +40,4 @@ jobs:
           ssh-keyscan -H "${{ secrets.HOST }}" > ~/.ssh/known_hosts
       
       - name: SCP upload
-        run: scp -r -i ~/.ssh/deploy_key public/* ${{ secrets.DEPLOY_USER }}@${{ secrets.HOST }}:html/
+        run: scp -r -i ~/.ssh/deploy_key public/. ${{ secrets.DEPLOY_USER }}@${{ secrets.HOST }}:html/
