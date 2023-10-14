@@ -31,6 +31,9 @@ jobs:
       
       - name: Verify build
         run: ls -la public
+
+      - name: Modify .htaccess
+        run: sed -i -e 's/Options -MultiViews//' public/.htaccess
       
       - name: Setup SSH
         run: |
@@ -39,5 +42,5 @@ jobs:
           sudo chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H "${{ secrets.HOST }}" > ~/.ssh/known_hosts
       
-      - name: SCP upload
-        run: scp -r -i ~/.ssh/deploy_key public/. ${{ secrets.DEPLOY_USER }}@${{ secrets.HOST }}:html/
+      - name: Rsync upload
+        run: rsync -av -e "ssh -i ~/.ssh/deploy_key -l ${{ secrets.DEPLOY_USER }} -p 10922" public/ ${{ secrets.DEPLOY_USER }}@${{ secrets.HOST }}:html/
