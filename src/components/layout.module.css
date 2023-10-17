@@ -68,6 +68,9 @@ a {
   }
   
   @media (orientation: portrait) {
+    .nav-links {
+        height: 50px;
+    }
     .nav-link-text {
       display: none;
     }
