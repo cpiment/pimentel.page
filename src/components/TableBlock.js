@@ -1,11 +1,13 @@
 import React from 'react'
-import { asciiTable } from './TableBlock.module.css'
+import { asciiTable, tableContainer } from './TableBlock.module.css'
 
 const TableBlock = (props) => {
   return (
-    <table className={asciiTable}>
-        {props.children}
-    </table>
+    <div className={tableContainer}>
+      <table className={asciiTable}>
+          {props.children}
+      </table>
+    </div>
   )
 }
 

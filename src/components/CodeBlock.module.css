@@ -1,6 +1,6 @@
-.code-block {
-    overflow: auto;
-    line-height: 1.5em;
+.code-block:hover,
+.code-block:focus {
+    visibility: visible;
 }
 
 .code-block::-webkit-scrollbar {
@@ -13,4 +13,16 @@
    
 .code-block::-webkit-scrollbar-thumb {
     background-color: rgb(255, 121, 198);
+}
+
+.code-block {
+    margin: 0;
+    padding: 20px;
+    overflow: auto;
+    line-height: 1.5em;
+    visibility: hidden;
+}
+
+.code-line {
+    visibility: visible;
 }
