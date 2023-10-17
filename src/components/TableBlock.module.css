@@ -1,9 +1,32 @@
 /*Adapted from https://stackoverflow.com/a/26344289*/
 
+.table-container {
+    overflow: auto;
+    visibility: hidden;
+}
+
+.table-container:hover,
+.table-container:focus {
+    visibility: visible;
+}
+
+.table-container::-webkit-scrollbar {
+    height: 1em;
+}
+   
+.table-container::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #e7a931ff;
+}
+   
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #e7a931ff;
+}
+
 .ascii-table {
-    margin: 1em;
+    /*margin: 1em;*/
     display: inline-block;
     position: relative;
+    visibility: visible;
 }
 .ascii-table table {
     border-collapse: collapse;
