@@ -4,6 +4,7 @@ import { MdxBlock } from './MdxBlock'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 import { prevLink, nextLink } from './BlogPost.module.css'
+import Giscus from '@giscus/react'
 
 const BlogPost = ({ pageContext, children }) => {
   const image = getImage(pageContext.node.frontmatter.hero_image)
@@ -34,6 +35,19 @@ const BlogPost = ({ pageContext, children }) => {
         to={`/blog${pageContext.next.fields.slug}`}>
           Next: {pageContext.next.frontmatter.title}
       </Link>}
+      <Giscus
+       repo="cpiment/pimentel.page"
+       repoId="R_kgDOGKKV9g"
+       category="Blog Comments"
+       categoryId="DIC_kwDOGKKV9s4CaP_A"
+       mapping="title"
+       strict="0"
+       reactionsEnabled="1"
+       emitMetadata="0"
+       inputPosition="bottom"
+       theme="purple_dark"
+       lang="en"
+      ></Giscus>
     </Layout>
   )
 }

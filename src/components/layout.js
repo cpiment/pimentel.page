@@ -22,7 +22,8 @@ const Layout = ({ pageTitle, isHome, children }) => {
     }
   `)
   React.useEffect( () => {
-    document.title = (isHome? "Home" : pageTitle)+" | "+ data.site.siteMetadata.title
+    //document.title = (isHome? "Home" : pageTitle)+" | "+ data.site.siteMetadata.title
+    document.title = pageTitle+" | "+ data.site.siteMetadata.title
   })
   return (
     <div className={container}>
