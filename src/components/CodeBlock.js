@@ -10,7 +10,7 @@ import { codeBlock, codeLine } from './CodeBlock.module.css';
 (typeof global !== "undefined" ? global : window).Prism = Prism;
 
 require("prismjs/components/prism-java");
-require("prismjs/components/prism-csharp");
+require("prismjs/components/prism-python");
 require("prismjs/components/prism-powershell");
 
 const CodeBlock = (props) => {
