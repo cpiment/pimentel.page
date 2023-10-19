@@ -27,7 +27,7 @@ const CodeBlock = (props) => {
         <div style={{...style}}>
           <pre className={`${className} ${codeBlock}`}>
             {tokens.map((line, i) => (
-              <div className={codeLine}>
+              <div key={"c"+i} className={codeLine}>
                 <div key={i} {...getLineProps({line, key: i})}>
                   {line.map((token, key) => (
                     <span key={key} {...getTokenProps({token, key})} />
