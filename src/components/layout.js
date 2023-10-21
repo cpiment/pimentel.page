@@ -53,6 +53,12 @@ const Layout = ({ pageTitle, isHome, children }) => {
             </Link>
           </li>
           <li className={navLinkItem}>
+            <a href="/privacy" >
+              <span className={navLinkText}>Privacy</span>
+              <StaticImage src="../images/user-privacy-icon.svg" alt="Privacy" className={navLinkImage}/>
+            </a>
+          </li>
+          <li className={navLinkItem}>
             <a href="https://github.com/cpiment/pimentel.page" >
               <span className={navLinkText}>Github</span>
               <StaticImage src="../images/github.svg" alt="GitHub" className={navLinkImage}/>
