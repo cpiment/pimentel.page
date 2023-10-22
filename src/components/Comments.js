@@ -1,6 +1,7 @@
 import React from 'react'
 import Giscus from '@giscus/react'
 import { Link } from 'gatsby'
+import { switchContainer, switchLabel, slider, round } from './Comments.module.css'
 
 const Comments = (props) => {
     const [isEnabled, setIsEnabled] = React.useState(() => {
@@ -20,18 +21,23 @@ const Comments = (props) => {
 
     return (
         <>
-            <div>
-                <input 
-                    type="checkbox" 
-                    id="enable-comments"
-                    checked={isEnabled}
-                    onChange={checkHandler}
-                    >
-                </input>
-                <label htmlFor="enable-comments">{
-                    isEnabled? "Disable comments" :
-                        (<>Enable Comments. Enabling comments stores session information in your browser. <Link to="/privacy">More Info</Link></>)}
-                    </label>
+            <div className={switchContainer}>        
+                <label 
+                    className={switchLabel}
+                    htmlFor="enable-comments">
+                    <input 
+                        type="checkbox" 
+                        id="enable-comments"
+                        checked={isEnabled}
+                        onChange={checkHandler}
+                        >
+                    </input>
+                    <div className={`${slider} ${round}`}></div>
+                </label>
+                <span>{ isEnabled? "Disable comments" :
+                  (<><span>Enable Comments. Enabling comments stores session information in your browser. </span>
+                    <Link to="/privacy">More Info</Link></>)
+                }</span>
             </div>
             { isEnabled? 
                 <Giscus

@@ -55,7 +55,7 @@ const Layout = ({ pageTitle, isHome, children }) => {
           <li className={navLinkItem}>
             <a href="/privacy" >
               <span className={navLinkText}>Privacy</span>
-              <StaticImage src="../images/user-privacy-icon.svg" alt="Privacy" className={navLinkImage}/>
+              <StaticImage src="../images/privacy.svg" alt="Privacy" className={navLinkImage}/>
             </a>
           </li>
           <li className={navLinkItem}>

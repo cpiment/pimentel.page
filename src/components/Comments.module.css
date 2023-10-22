@@ -1,0 +1,52 @@
+/*Based on https://codepen.io/AllThingsSmitty/pen/MmxxOz/*/
+.switch-container input {
+    display:none;
+}
+
+.switch-label {
+    display: inline-block;
+    height: 1.2em;
+    position: relative;
+    width: 2em;
+    margin-right: 0.5em;
+    top: 0.2em
+}
+
+.slider {
+    background-color: #c0b0a0ff;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #201020ff;;
+    bottom: 0.2em;
+    content: "";
+    height: 0.8em;
+    left: 0.2em;
+    position: absolute;
+    transition: .4s;
+    width: 0.8em;
+  }
+
+  input:checked + .slider {
+    background-color: #689e6aff;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(0.8em);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
