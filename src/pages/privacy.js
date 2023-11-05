@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Layout from '../components/layout'
 
-const AboutPage = () => {
+const PrivacyPage = () => {
   return (
     <Layout pageTitle="Privacy">
       <p>
