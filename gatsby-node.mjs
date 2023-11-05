@@ -1,5 +1,6 @@
 import slugify from '@sindresorhus/slugify'
 import { resolve } from 'path'
+import _ from 'lodash'
 
 //Adds slug to mdx nodes
 export const onCreateNode = ({ node, actions }) => {
@@ -22,36 +23,63 @@ export const onPostBuild = ({ reporter }) => {
 export const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const blogPostTemplate = resolve(`src/components/BlogPost.js`)
+  const postListTemplate = resolve(`src/components/PostList.js`)
+
   const result = await graphql(`{
-  allMdx(sort: {frontmatter: {date: ASC}}) {
-    edges {
-      node {
-        fields {
-          slug
+    postsMdx: 
+      allMdx(sort: {frontmatter: {date: ASC}}) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            internal {
+              contentFilePath
+            }
+            frontmatter {
+              title
+              tags
+              date(formatString: "MMMM DD, YYYY")
+              update_date(formatString: "MMMM DD, YYYY")
+              hero_image_alt
+              hero_image_credit_link
+              hero_image_credit_text
+              hero_image {
+                childImageSharp {
+                  gatsbyImageData(layout: FULL_WIDTH)
+                }
+              }
+            }
+            body
+          }
         }
-        internal {
-          contentFilePath
-        }
-        frontmatter {
-          title
-          date(formatString: "MMMM DD, YYYY")
-          update_date(formatString: "MMMM DD, YYYY")
-          hero_image_alt
-          hero_image_credit_link
-          hero_image_credit_text
-          hero_image {
-            childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH)
+      }
+    tagsGroup: 
+      allMdx (sort: {frontmatter: {date: DESC}}) {
+        group(field: { frontmatter: { tags: SELECT }}) {
+          fieldValue
+          nodes {
+            frontmatter {
+              title
+              hero_image_alt
+              date(formatString: "MMMM DD, YYYY")
+              update_date(formatString: "MMMM DD, YYYY")
+              hero_image {
+                childImageSharp {
+                  gatsbyImageData(width: 150, height: 100, layout: FIXED)
+                }
+              }
+            }
+            id
+            fields {
+              slug
             }
           }
         }
-        body
       }
-    }
-  }
 }`)
   //Retrieve allMdx pages ordered by date
-  const posts = result.data.allMdx.edges
+  const posts = result.data.postsMdx.edges
   //Create each page with links to previous and next
   posts.forEach( ({node},index) => {
     createPage({
@@ -78,4 +106,24 @@ export const createPages = async ({ graphql, actions }) => {
       })
     }
   })
+
+  //Retrieve tag values
+  const tags = result.data.tagsGroup.group
+
+  // Make tag pages
+  tags.forEach(tag => {
+    createPage({
+      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+      component: postListTemplate,
+      context: {
+        pageTitle: `Posts with tag '${tag.fieldValue}'`,
+        data:{
+          allMdx: {
+            nodes : tag.nodes
+          }
+        }
+      }
+    })
+  })
+
 }
