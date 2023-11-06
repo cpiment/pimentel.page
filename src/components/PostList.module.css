@@ -1,0 +1,17 @@
+.article {
+    display: flex;
+    align-items: center;
+ }
+
+ .text {
+     display: inline;
+     margin-left: 1em;
+ }
+
+ .image {
+     min-width: 150px;
+ }
+
+ .post-list {
+     padding-left: 0px;
+ }
