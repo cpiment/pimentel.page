@@ -22,7 +22,8 @@ const Layout = ({ pageTitle, isHome, children }) => {
     }
   `)
   React.useEffect( () => {
-    document.title = (isHome? "Home" : pageTitle)+" | "+ data.site.siteMetadata.title
+    //document.title = (isHome? "Home" : pageTitle)+" | "+ data.site.siteMetadata.title
+    document.title = pageTitle+" | "+ data.site.siteMetadata.title
   })
   return (
     <div className={container}>
@@ -50,6 +51,12 @@ const Layout = ({ pageTitle, isHome, children }) => {
               <span className={navLinkText}>About</span>
               <StaticImage src="../images/about.svg" alt="About" className={navLinkImage}/>
             </Link>
+          </li>
+          <li className={navLinkItem}>
+            <a href="/privacy" >
+              <span className={navLinkText}>Privacy</span>
+              <StaticImage src="../images/privacy.svg" alt="Privacy" className={navLinkImage}/>
+            </a>
           </li>
           <li className={navLinkItem}>
             <a href="https://github.com/cpiment/pimentel.page" >

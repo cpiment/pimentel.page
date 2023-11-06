@@ -4,8 +4,7 @@ import { MdxBlock } from './MdxBlock'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 import { prevLink, nextLink } from './BlogPost.module.css'
-import { tag } from './BlogPost.module.css'
-import _ from 'lodash'
+import Comments from './Comments'
 
 const BlogPost = ({ pageContext, children }) => {
   const image = getImage(pageContext.node.frontmatter.hero_image)
@@ -28,16 +27,6 @@ const BlogPost = ({ pageContext, children }) => {
       <MdxBlock>
           {children}
       </MdxBlock>
-      <div>
-        <Link to={`/tags/`}>Tags:</Link> {pageContext.node.frontmatter.tags.map(
-          (tagValue,i) => (<Link 
-            key={`tag-${tag}-${i}`}
-            className={tag}
-            to={`/tags/${_.kebabCase(tagValue)}`}>
-              {tagValue}
-            </Link>)
-        )}
-      </div>
       {pageContext.prev && <Link className={prevLink} 
         to={`/blog${pageContext.prev.fields.slug}`}>
           Previous: {pageContext.prev.frontmatter.title}
@@ -46,6 +35,8 @@ const BlogPost = ({ pageContext, children }) => {
         to={`/blog${pageContext.next.fields.slug}`}>
           Next: {pageContext.next.frontmatter.title}
       </Link>}
+      <br/>
+      <Comments></Comments>
     </Layout>
   )
 }
