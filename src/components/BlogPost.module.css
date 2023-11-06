@@ -5,3 +5,13 @@
 .next-link {
     float: right;
 }
+
+.tag {
+    font-family: 'Fira Code', monospace;
+    background-color: #e7a931ff;
+    color: #201020ff;
+    padding-inline-start: 0.3em;
+    padding-inline-end: 0.3em;
+    border-radius: 10px;
+    margin-left: 0.5em;
+}
