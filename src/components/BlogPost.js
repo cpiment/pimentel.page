@@ -6,6 +6,7 @@ import { Link } from 'gatsby'
 import { prevLink, nextLink } from './BlogPost.module.css'
 import { tag } from './BlogPost.module.css'
 import _ from 'lodash'
+import Comments from './Comments'
 
 const BlogPost = ({ pageContext, children }) => {
   const image = getImage(pageContext.node.frontmatter.hero_image)
@@ -46,6 +47,8 @@ const BlogPost = ({ pageContext, children }) => {
         to={`/blog${pageContext.next.fields.slug}`}>
           Next: {pageContext.next.frontmatter.title}
       </Link>}
+      <br/>
+      <Comments></Comments>
     </Layout>
   )
 }
