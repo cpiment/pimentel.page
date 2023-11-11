@@ -25,4 +25,4 @@ const PrivacyPage = () => {
   )
 }
 
-export default AboutPage
+export default PrivacyPage
